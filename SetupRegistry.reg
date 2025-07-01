@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+
+; Register the app
+[HKEY_LOCAL_MACHINE\SOFTWARE\Clients\LinkRouter]
+@="LinkRouter"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Clients\LinkRouter\Capabilities]
+"ApplicationName"="LinkRouter"
+"ApplicationDescription"="Custom link router for specific URLs"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Clients\LinkRouter\Capabilities\URLAssociations]
+"http"="LinkRouterURL"
+"https"="LinkRouterURL"
+
+; Add to Registered Applications
+[HKEY_LOCAL_MACHINE\SOFTWARE\RegisteredApplications]
+"LinkRouter"="Software\\Clients\\LinkRouter\\Capabilities"
+
+; Register the protocol handler
+[HKEY_CLASSES_ROOT\LinkRouterURL]
+@="LinkRouter Protocol"
+"URL Protocol"=""
+
+[HKEY_CLASSES_ROOT\LinkRouterURL\shell\open\command]
+@="\"Your File Path to LinkRouter.exe" \"%1\""
